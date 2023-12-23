@@ -157,4 +157,30 @@ pryzmd keys add "cüzdan ismi"
 
 * Cüzdan adresinizi ve gizli kelimelerinizi bir yere not etmeyi unutmayın. pryzm... diye başlayan adresinizi alın.
 *  [BURADAN](https://testnet.pryzm.zone/faucet) faucete ulaşıp cüzdanınıza test tokeni isteyin.
-*  
+
+### Validator Çalıştırma
+* Validator Adı bölümünü istediğiniz bir isim yapmayı unuatmayın.
+* cüzdanismi bölümünü yukarıda verdiğiniz ismi girin.
+* details bölümüne istediğiniz bir şeyler yazabilirsiniz.
+* website bölümüne twitter github veya istediğiniz bir bağlantı ekleyebilirsiniz.
+```
+pryzmd tx staking create-validator \
+--amount 1000000upryzm \
+--pubkey $(pryzmd tendermint show-validator) \
+--moniker "Validator Adı" \
+--details "" \
+--website "wesite yada twitter adresiniz" \
+--chain-id indigo-1 \
+--commission-rate 0.1 \
+--commission-max-rate 0.20 \
+--commission-max-change-rate 0.03 \
+--min-self-delegation 1 \
+--from cüzdanismi \
+--gas-adjustment 1.5 \
+--gas auto \
+--gas-prices 0.015upryzm \
+-y
+```
+* Bu komutu düzenleyip girdikten sonra, sizden cüzdan şifrenizi isteyebilir. Cüzdan için belirlediğiniz şifreyi giriyoruz.
+* Bu adımları yaptıktan sonra size TX verecek [BURADAN](https://explorer.stavr.tech/Pryzm-Testnet) girip kontrol edebilirsiniz.
+* [BURADAN](https://explorer.stavr.tech/Pryzm-Testnet/staking) buradan kendi Moniker adınızı tarayın (Aktif veya İnaktif sete bakın.) Görüyorsanız sorunsuz şekilde kurulumu gerçekleştirmiş demektir.
